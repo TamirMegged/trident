@@ -1,6 +1,4 @@
 const { Schema, model } = require('mongoose')
-// const CityEnum = require('./enums/city.enum.ts')
-// const RoleEnum = require('./enums/role.enum.ts')
 
 const usersSchema = new Schema({
     first_name: String,

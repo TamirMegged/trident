@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose')
-// const CityEnum = require('./enums/city.enum')
 
 const ordersSchema = new Schema({
     customer: {

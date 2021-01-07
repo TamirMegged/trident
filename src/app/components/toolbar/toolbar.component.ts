@@ -23,7 +23,7 @@ export class ToolbarComponent implements OnInit {
   ) {
     this.matIconRegistry.addSvgIcon(
       "darkLogo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/darkLogo.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("http://localhost:1000/public/darkLogo.svg")
     );
   }
 

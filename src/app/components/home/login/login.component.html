@@ -12,7 +12,7 @@
         <button mat-raised-button *ngFor="let category of categoriesService.all; let i = index" class="categoryBtn"
             [matTooltip]="('All ' + category.client_name + ' Products')" routerLink="/shop"
             (click)="changeWantedTab(i)">
-            <img [src]="('localhost:1000/public/vectors/' + category.name + '.png')" class="categoryVector">
+            <img [src]="('http://localhost:1000/public//vectors/' + category.name + '.png')" class="categoryVector">
             <br>
             <span style="color: #042342;">{{category.client_name}}</span>
         </button>

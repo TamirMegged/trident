@@ -71,7 +71,7 @@ export class EditProductComponent implements OnInit {
           console.log(err)
         }
       )
-      image = `http://localhost:1000/public/${this.selectedImg.name}`;
+      image = `https://tridentmarinesports.herokuapp.com/public/${this.selectedImg.name}`;
       this.productsService.tempProduct.image = image
     } else {
       image = this.product.image

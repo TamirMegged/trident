@@ -25,27 +25,27 @@ export class ShopComponent implements OnInit {
   ) {
     this.matIconRegistry.addSvgIcon(
       "freediving",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("http://localhost:1000/public/icons/black/freediving.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("https://tridentmarinesports.herokuapp.com/public/icons/black/freediving.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "scubaDiving",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../http://localhost:1000/public/icons/black/scubaDiving.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../https://tridentmarinesports.herokuapp.com/public/icons/black/scubaDiving.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "surfing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../http://localhost:1000/public/icons/black/surfing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../https://tridentmarinesports.herokuapp.com/public/icons/black/surfing.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "kitesurfing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../http://localhost:1000/public/icons/black/kitesurfing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../https://tridentmarinesports.herokuapp.com/public/icons/black/kitesurfing.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "fishing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../http://localhost:1000/public/icons/black/fishing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../https://tridentmarinesports.herokuapp.com/public/icons/black/fishing.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "spearfishing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../http://localhost:1000/public/icons/black/spearfishing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../https://tridentmarinesports.herokuapp.com/public/icons/black/spearfishing.svg")
     );
   }
 

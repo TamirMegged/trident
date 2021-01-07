@@ -60,7 +60,7 @@ export class AddProductComponent implements OnInit {
         console.log(err)
       }
     )
-    const image = `http://localhost:1000/public/${this.selectedImg.name}`;
+    const image = `https://tridentmarinesports.herokuapp.com/public/${this.selectedImg.name}`;
 
     const { name, company, price, category } = this.productForm.value
     const body = { name, company, price, image, category }

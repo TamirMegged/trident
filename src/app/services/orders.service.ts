@@ -9,29 +9,29 @@ export class OrdersService {
   constructor(public http: HttpClient) { }
 
   count() {
-    return this.http.get('http://localhost:1000/orders/count');
+    return this.http.get('https://tridentmarinesports.herokuapp.com/orders/count');
   }
 
   new(body: any) {
-    return this.http.post('http://localhost:1000/orders', body, {
+    return this.http.post('https://tridentmarinesports.herokuapp.com/orders', body, {
       headers: { 'Content-Type': 'application/json', 'Authorization': localStorage.access_token }
     })
   }
 
   getByUser(userID: string) {
-    return this.http.get('http://localhost:1000/orders/user/' + userID, {
+    return this.http.get('https://tridentmarinesports.herokuapp.com/orders/user/' + userID, {
       headers: { 'Authorization': localStorage.access_token }
     })
   }
 
   getAllShippingDates() {
-    return this.http.get('http://localhost:1000/orders/dates', {
+    return this.http.get('https://tridentmarinesports.herokuapp.com/orders/dates', {
       headers: { 'Authorization': localStorage.access_token }
     })
   }
 
   receipt(orderID: string) {
-    return this.http.post('http://localhost:1000/orders/receipt', { orderID }, {
+    return this.http.post('https://tridentmarinesports.herokuapp.com/orders/receipt', { orderID }, {
       headers: { 'Authorization': localStorage.access_token }
     })
   }

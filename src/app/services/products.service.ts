@@ -13,29 +13,29 @@ export class ProductsService {
   public searchMode: boolean
 
   count() {
-    return this.http.get('http://localhost:1000/products/count');
+    return this.http.get('https://tridentmarinesports.herokuapp.com/products/count');
   }
 
   getByCategory(category: string) {
-    return this.http.get('http://localhost:1000/products/' + category, {
+    return this.http.get('https://tridentmarinesports.herokuapp.com/products/' + category, {
       headers: { 'Authorization': localStorage.access_token }
     });
   }
 
   add(body: any) {
-    return this.http.post('http://localhost:1000/products/add', body, {
+    return this.http.post('https://tridentmarinesports.herokuapp.com/products/add', body, {
       headers: { 'Content-Type': 'application/json', 'Authorization': localStorage.access_token }
     })
   }
 
   edit(body: any) {
-    return this.http.put('http://localhost:1000/products/edit', body, {
+    return this.http.put('https://tridentmarinesports.herokuapp.com/products/edit', body, {
       headers: { 'Content-Type': 'application/json', 'Authorization': localStorage.access_token }
     })
   }
 
   search(text: string) {
-    return this.http.get('http://localhost:1000/products/search/' + text, {
+    return this.http.get('https://tridentmarinesports.herokuapp.com/products/search/' + text, {
       headers: { 'Authorization': localStorage.access_token }
     })
   }

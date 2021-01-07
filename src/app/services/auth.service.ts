@@ -31,17 +31,17 @@ export class AuthService {
   // }
 
   getById(userID: string) {
-    return this.http.get('http://localhost:1000/users/' + userID);
+    return this.http.get('https://tridentmarinesports.herokuapp.com/users/' + userID);
   }
 
   register(body: any) {
-    return this.http.post('http://localhost:1000/users/register', body, {
+    return this.http.post('https://tridentmarinesports.herokuapp.com/users/register', body, {
       headers: { 'Content-Type': 'application/json' }
     })
   }
 
   login(body: any) {
-    return this.http.post('http://localhost:1000/users/login', body, {
+    return this.http.post('https://tridentmarinesports.herokuapp.com/users/login', body, {
       headers: { 'Content-Type': 'application/json' }
     })
   }

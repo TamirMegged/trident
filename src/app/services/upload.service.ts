@@ -12,7 +12,7 @@ export class UploadService {
   ) { }
 
   upload(formData: FormData) {
-    return this.http.post('http://localhost:1000/upload', formData)
+    return this.http.post('https://tridentmarinesports.herokuapp.com/upload', formData)
   }
 
 }

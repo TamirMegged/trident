@@ -1,0 +1,33 @@
+form {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 60vw;
+    /* background-color: white; */
+}
+
+.formField {
+    display: block;
+    width: 20vw;
+    margin: 3vh auto 3vh auto;
+}
+
+span {
+    color: red;
+}
+
+.autoFill {
+    display: inline;
+}
+
+header {
+    font-size: 4vh;
+    padding-top: 5vh;
+}
+
+.orderBtn {
+    font-size: 5vh;
+    padding: 2vh;
+    margin: 3vh;
+}

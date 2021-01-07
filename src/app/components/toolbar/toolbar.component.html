@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <img src="../../../assets/Logo/darkLogo2.jpeg" height="100%" (click)="clearSearch()" routerLink="/home"
+        matTooltip="Back to Home Page">
+    <span (click)="clearSearch()" routerLink="/home" class="title" matTooltip="Back to Home Page">Trident</span>
+    <span class="secondary">Marine Sports Equipment</span>
+    <span class="spacer"></span>
+    <span *ngIf="authService.currentUser">
+        <mat-form-field class="formField" color="accent">
+            <mat-label style="color: #eee;">Search Product</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText">
+        </mat-form-field>
+        <button mat-icon-button matTooltip="Search by name or company" (click)="search()"
+            [disabled]="checkDisability()">
+            <mat-icon color="accent">search</mat-icon>
+        </button>
+    </span>
+    <span *ngIf="!authService.currentUser">Welcome Guest</span>
+    <span *ngIf="authService.currentUser?.role === 'customer'">Hello {{authService.currentUser.first_name}}</span>
+    <span *ngIf="authService.currentUser?.role === 'admin'">Hello Boss</span>
+    <button mat-icon-button matTooltip="Contact Us" (click)="clearSearch()" routerLink="/contact_us">
+        <mat-icon color="accent">phone</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="My Acoount" (click)="clearSearch()" routerLink="/my_account"
+        *ngIf="authService.currentUser">
+        <mat-icon color="accent">person</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Home" (click)="clearSearch()" routerLink="/home">
+        <mat-icon color="accent">home</mat-icon>
+    </button>
+</mat-toolbar>

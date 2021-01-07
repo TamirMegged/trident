@@ -1,0 +1,18 @@
+<div class="container">
+    <header>Contact Us</header>
+    <div class="contact">
+        <span>Phone Number:</span>
+        {{phoneNumber}}
+        <button mat-icon-button [cdkCopyToClipboard]="phoneNumber" matTooltip="Copy phone number">
+            <mat-icon>phone</mat-icon>
+        </button>
+    </div>
+    <div class="contact">
+        <span>Email Address:</span>
+        {{emailAddress}}
+        <button mat-icon-button [cdkCopyToClipboard]="emailAddress" matTooltip="Copy email address">
+            <mat-icon>email</mat-icon>
+        </button>
+    </div>
+    <img src="../../../assets/Logo/transparentDarkLogo.png">
+</div>

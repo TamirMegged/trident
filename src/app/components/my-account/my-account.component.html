@@ -1,0 +1,55 @@
+<mat-card class="container" *ngIf="user">
+    <mat-card-header style="padding: 1vh;">
+        <div mat-card-avatar class="avatar"></div>
+        <mat-card-subtitle>My Account</mat-card-subtitle>
+        <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content style="padding: 2vh;">
+        <div *ngIf="authService.currentUser.role === 'admin'" class="admin">Website Admin</div>
+        <div *ngIf="authService.currentUser.role === 'customer'">
+            <header>Previous Orders</header>
+            <div class="tableContainer">
+                <table mat-table [dataSource]="orders" class="mat-elevation-z8 orders">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef>No.</th>
+                        <td mat-cell *matCellDef="let order">{{order._id}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="shippingAddress">
+                        <th mat-header-cell *matHeaderCellDef>Shipping Address</th>
+                        <td mat-cell *matCellDef="let order">{{order.street}}, {{order.city}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="orderDate">
+                        <th mat-header-cell *matHeaderCellDef>Order Date</th>
+                        <td mat-cell *matCellDef="let order">{{moment(order.order_date || null).format("DD/MM/YYYY")}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="shippingDate">
+                        <th mat-header-cell *matHeaderCellDef>Shipping Date</th>
+                        <td mat-cell *matCellDef="let order">{{moment(order.shipping_date).format("DD/MM/YYYY")}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="totalPrice">
+                        <th mat-header-cell *matHeaderCellDef>Total Price</th>
+                        <td mat-cell *matCellDef="let order">{{order.total_price}}$</td>
+                    </ng-container>
+                    <ng-container matColumnDef="creditCard">
+                        <th mat-header-cell *matHeaderCellDef>Payment Method</th>
+                        <td mat-cell *matCellDef="let order">Ending in {{order.creditCard}}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="cols; sticky: true;"></tr>
+                    <tr mat-row *matRowDef="let row; columns: cols;"></tr>
+                </table>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+        <button mat-button routerLink="/shop" color="accent">
+            <span *ngIf="user.role === 'admin'">CHECK SHOP</span>
+            <div *ngIf="user.role === 'customer'">
+                <span *ngIf="user.cart.products.length">RESUME SHOPPING</span>
+                <span *ngIf="!user.cart.products.length">START SHOPPING</span>
+            </div>
+        </button>
+        <button mat-button color="warn" (click)="authService.logout()">LOGOUT</button>
+    </mat-card-actions>
+</mat-card>

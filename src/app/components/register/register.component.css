@@ -1,0 +1,21 @@
+.step {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.formField {
+    display: block;
+    width: 20vw;
+    margin: 5vh auto 0 auto;
+}
+
+.error {
+    color: red;
+    margin: 2vh;
+}
+
+.congrats {
+    font-size: 3vh;
+    margin: 3vh;
+}

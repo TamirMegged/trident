@@ -1,0 +1,28 @@
+form {
+    text-align: center;
+}
+
+header {
+    font-size: 4vh;
+    padding: 2vh;
+    color: white;
+    background-color: #019a7e;
+    text-align: center;
+}
+
+.cancelBtn {
+    position: absolute;
+    top: 1vh;
+    right: 0;
+}
+
+mat-form-field {
+    display: block;
+    width: 20vw;
+    margin: 3vh auto 3vh auto;
+}
+
+.saveBtn {
+    font-size: 3vh;
+    margin: 3vh;
+}

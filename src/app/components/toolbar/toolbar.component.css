@@ -1,0 +1,29 @@
+.spacer {
+    flex: 1 auto;
+}
+
+span {
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+    color: white;
+    font-weight: lighter;
+}
+
+.secondary {
+    color: rgb(2, 197, 161);
+    font-weight: lighter;
+}
+
+.title:hover, img:hover {
+    cursor: pointer;
+}
+
+.title {
+    font-size: 4vh;
+    font-weight: lighter;
+}
+
+.formField {
+    margin-top: 2vh;
+    font-size: 2vh;
+}

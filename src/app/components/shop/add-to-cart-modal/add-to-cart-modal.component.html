@@ -1,0 +1,10 @@
+<mat-dialog-actions>
+    <div class="container">
+        <header>{{data.product.name}}</header>
+        <mat-form-field class="amountInput">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" [(ngModel)]="data.amount" min="1">
+        </mat-form-field>
+        <button mat-raised-button color="accent" (click)="addToCart()">Add to Cart</button>
+    </div>
+</mat-dialog-actions>

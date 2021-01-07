@@ -1,0 +1,100 @@
+<mat-horizontal-stepper [linear]="true" #stepper style="margin: 5vh auto; width: 80%">
+    <mat-step [stepControl]="firstForm">
+        <form [formGroup]="firstForm" class="step">
+            <ng-template matStepLabel>Fill in your user details</ng-template>
+            <mat-form-field class="formField">
+                <input matInput placeholder="Email Address" formControlName="email" required>
+                <mat-error *ngIf="firstForm.controls.email.errors?.required">
+                    Please fill email address</mat-error>
+                <mat-error *ngIf="firstForm.controls.email.errors?.email">
+                    Email address invalid</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField">
+                <input matInput placeholder="ID Number" formControlName="id_number" required>
+                <mat-error *ngIf="firstForm.controls.id_number.errors?.required">
+                    Please fill your ID number</mat-error>
+                <mat-error *ngIf="firstForm.controls.id_number.errors?.pattern">
+                    ID number must contain 9 digits</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="firstForm.controls.password.errors?.required">
+                    Please fill password</mat-error>
+                <mat-error *ngIf="firstForm.controls.password.errors?.pattern">
+                    Password must contain between 8 to 10 characters, one uppercase letter, one lowercase letter and one
+                    digit</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="passwordConfirm" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="firstForm.controls.passwordConfirm.errors?.required">
+                    Please fill confirm password</mat-error>
+                <mat-error *ngIf="firstForm.controls.passwordConfirm.errors?.pattern">
+                    Confirm password must contain between 8 to 10 characters, one uppercase letter, one lowercase letter
+                    and one
+                    digit</mat-error>
+                <mat-error *ngIf="firstForm.controls.passwordConfirm.errors?.notSame">
+                    Confirm password must be identical to password</mat-error>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext [disabled]="firstForm.invalid">Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondForm" label="Fill out your address">
+        <form [formGroup]="secondForm" class="step">
+            <ng-template matStepLabel>Fill in your personal details</ng-template>
+            <mat-form-field class="formField">
+                <input matInput formControlName="first_name" placeholder="First Name" required>
+                <mat-error *ngIf="secondForm.controls.first_name.invalid">
+                    Please fill your first name</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField">
+                <input matInput formControlName="last_name" placeholder="Last Name" required>
+                <mat-error *ngIf="secondForm.controls.last_name.invalid">
+                    Please fill your last name</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField">
+                <mat-label>City</mat-label>
+                <mat-select formControlName="city">
+                    <mat-option *ngFor="let city of cities" [value]="city">
+                        {{city}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="secondForm.controls.city.errors?.required">
+                    Please choose one of the cities above</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField">
+                <input matInput formControlName="street" placeholder="Street" required>
+                <mat-error *ngIf="secondForm.controls.street.invalid">
+                    Please fill street field</mat-error>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext [disabled]="secondForm.invalid">Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <div class="step">
+            <ng-template matStepLabel>Become a Trident Member</ng-template>
+            <p class="congrats">Congratulations! You are one click away from becoming a Trident member.</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-raised-button (click)="register()">Become a Member & Start Shopping</button>
+            </div>
+            <div *ngIf="isError" class="error">{{errorMsg}}</div>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

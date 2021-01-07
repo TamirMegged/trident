@@ -1,0 +1,35 @@
+<Header>
+    <span>New Product</span>
+    <button mat-icon-button (click)="drawer.close()" matTooltip="Cancel" class="cancelBtn">
+        <mat-icon>close</mat-icon>
+    </button>
+</Header>
+<mat-divider></mat-divider>
+<form [formGroup]="productForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Company</mat-label>
+        <input matInput type="text" formControlName="company">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" min="0" formControlName="price">
+    </mat-form-field>
+    <div>
+        <input type="file" style="display: none" (change)="onFileChanged($event)" #fileInput required>
+        <button mat-button (click)="fileInput.click()">Upload Image</button>
+        <div>{{selectedImg?.name}}</div>
+    </div>
+    <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categories" [value]="category.client_name">
+                {{category.client_name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-button color="accent" (click)="save()" class="saveBtn" [disabled]="productForm.invalid || !selectedImg">SAVE</button>
+</form>

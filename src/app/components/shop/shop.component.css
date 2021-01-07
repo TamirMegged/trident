@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+}
+
+.amountInput {
+    margin-bottom: 1vh;
+    width: 100%;
+}
+
+.drawer {
+    width: 30%;
+}
+
+.showCartBtn {
+    position: fixed;
+    bottom: 2vh;
+    left: 1vw;
+}
+
+.openAddBtn {
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
+    width: 6vw;
+    height: 6vw;
+}
+
+.drawerContainer {
+    position: absolute;
+    top: 8vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.noProducts {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 7vh;
+    color: gray;
+}

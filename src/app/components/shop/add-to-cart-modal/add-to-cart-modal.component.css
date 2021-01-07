@@ -1,0 +1,17 @@
+.container {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2vh;
+}
+
+header {
+    font-size: 3vh;
+    margin-bottom: 2vh;
+}
+
+.amountInput {
+    width: 4vw;
+    display: block;
+    margin: 0 auto;
+}

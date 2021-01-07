@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+}
+
+header {
+    font-size: 5vh;
+    font-weight: lighter;
+    margin-bottom: 2vh;
+    margin-top: 3vh;
+}
+
+.description {
+    font-size: 2.3vh;
+    font-weight: lighter;
+    color: grey;
+}
+
+.slidesContainer {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 1vw;
+}

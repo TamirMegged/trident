@@ -1,0 +1,39 @@
+<Header style="background-color: #019a7e;">
+    <span>My Cart</span>
+    <button mat-icon-button (click)="drawer.close()" matTooltip="Hide Cart" class="hideCartBtn">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+</Header>
+<mat-divider></mat-divider>
+<mat-list role="list" class="items">
+    <mat-list-item role="listitem" *ngFor="let item of cart?.products" class="item">
+        <img [src]="item.product.image" class="itemImg">
+        <span class="itemName">{{item.product.name}}</span>
+        <span *ngIf="!item.editMode" class="itemAmount" (dblclick)="toggleEditMode(item)"
+            matTooltip="Double click to edit">X{{item.amount}}</span>
+        <mat-form-field *ngIf="item.editMode" class="itemAmount">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" [(ngModel)]="item.amount" min="1">
+        </mat-form-field>
+        <span class="itemPrice">price: {{item.amount * item.product.price}}$</span>
+        <button mat-icon-button *ngIf="!item.editMode" (click)="toggleEditMode(item)" matTooltip="Edit Item">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="item.editMode" (click)="saveChanges(item)" matTooltip="Save Changes">
+            <mat-icon>check</mat-icon>
+        </button>
+        <button mat-icon-button (click)="openRemoveItemDialog(item)" matTooltip="Remove Item">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>
+<div class="totalPrice">Total Price: {{cart?.total_price}}$</div>
+<div class="actions">
+    <button mat-mini-fab class="emptyCartBtn" color="warn" (click)="openEmptyCartDialog()"
+        [disabled]="!cart?.products.length" matTooltip="Empty Cart">
+        <mat-icon svgIcon="emptyCart"></mat-icon>
+    </button>
+    <button mat-stroked-button color="accent" matTooltip="Continue to order" [disabled]="!cart?.products.length"
+        class="orderBtn" routerLink="/order">CHECK</button>
+</div>

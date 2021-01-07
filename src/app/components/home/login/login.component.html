@@ -1,0 +1,47 @@
+<div class="container">
+    <div *ngIf="authService.currentUser?.role !== 'admin'">
+        <button class="shoppingBtn" mat-raised-button color="primary" [disabled]="!authService.currentUser"
+            routerLink="/shop" matTooltip="Let's go shopping" *ngIf="!cart?.products.length">Start Shopping</button>
+        <button class="shoppingBtn" mat-raised-button color="primary" [disabled]="!authService.currentUser"
+            routerLink="/shop" matTooltip="Continue your shopping spree" *ngIf="cart?.products.length">Resume Shopping</button>
+    </div>
+    <button class="shoppingBtn" mat-raised-button color="primary" routerLink="/shop"
+        *ngIf="authService.currentUser?.role === 'admin'" matTooltip="Check and edit shop's products">Go to
+        Shop</button>
+    <div *ngIf="authService.currentUser">
+        <button mat-raised-button *ngFor="let category of categoriesService.all; let i = index" class="categoryBtn"
+            [matTooltip]="('All ' + category.client_name + ' Products')" routerLink="/shop"
+            (click)="changeWantedTab(i)">
+            <img [src]="('../../../assets/vectors/' + category.name + '.png')" class="categoryVector">
+            <br>
+            <span style="color: #042342;">{{category.client_name}}</span>
+        </button>
+    </div>
+    <form *ngIf="!authService.currentUser" [formGroup]="loginForm">
+        <mat-form-field class="formField" appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <input matInput type="text" formControlName="email">
+            <mat-error *ngIf="loginForm.controls.email.errors?.required">
+                Please fill email address</mat-error>
+            <mat-error *ngIf="loginForm.controls.email.errors?.email">
+                Email address invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="formField">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.controls.password.errors?.required">
+                Please fill password</mat-error>
+            <mat-error *ngIf="loginForm.controls.password.errors?.pattern">
+                Password must contain between 8 to 10 characters, one uppercase letter, one lowercase letter and one
+                digit</mat-error>
+        </mat-form-field>
+        <div *ngIf="isError" class="error">{{errorMsg}}</div>
+        <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">LOGIN</button>
+        <div style="margin-top: 2vh;">Don't have an acoount yet? <button mat-button
+                routerLink="/register">REGISTER</button></div>
+    </form>
+</div>

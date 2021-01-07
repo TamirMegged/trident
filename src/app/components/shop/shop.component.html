@@ -1,0 +1,55 @@
+<mat-drawer-container class="drawerContainer" autosize>
+  <mat-drawer #drawer class="drawer" mode="side">
+    <app-cart *ngIf="authService.currentUser.role === 'customer'" [drawer]="drawer"></app-cart>
+    <app-edit-product *ngIf="authService.currentUser.role === 'admin' && selectedProduct" [drawer]="drawer"
+      [product]="selectedProduct"></app-edit-product>
+    <app-add-product *ngIf="authService.currentUser.role === 'admin' && !selectedProduct" [drawer]="drawer">
+    </app-add-product>
+  </mat-drawer>
+  <mat-drawer-content style="position: relative;">
+    <mat-tab-group mat-align-tabs="center" dynamicHeight mat-stretch-tabs animationDuration="0ms"
+      (selectedTabChange)="getCategoryProducts($event.tab.textLabel)" [(selectedIndex)]="categoriesService.selected">
+      <mat-tab *ngFor="let category of categoriesService.all" [label]="category.client_name">
+        <ng-template mat-tab-label>
+          <mat-icon [svgIcon]="category.name" style="margin: 1vw;"></mat-icon>
+          {{category.client_name}}
+        </ng-template>
+        <div class="container" (productsChanged)="getCategoryProducts(currentCategory)">
+          <app-product *ngFor="let product of this.productsService.products" [product]="product"
+            [selectedProduct]="selectedProduct" [drawer]="drawer" (addBtnClick)="openDialog($event)"
+            (editBtnClick)="openAdminDrawer($event)"></app-product>
+          <div *ngIf="!productsService.products?.length && !productsService.searchMode" class="noProducts">Sorry, no
+            {{categoriesService.all[categoriesService.selected].client_name}} items yet</div>
+          <button *ngIf="authService.currentUser.role === 'customer' && !drawer.opened" mat-fab color="primary"
+            class="showCartBtn" (click)="drawer.open()" matTooltip="Show Cart">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+          <button *ngIf="authService.currentUser.role === 'admin'" mat-fab color="accent" class="openAddBtn"
+            (click)="openAdminDrawer({drawer: drawer})" matTooltip="Add new product">
+            <mat-icon>queue</mat-icon>
+          </button>
+        </div>
+      </mat-tab>
+      <mat-tab *ngIf="productsService.searchMode">
+        <ng-template mat-tab-label>
+          <mat-icon style="margin: 1vw;">search</mat-icon>
+          Search Results
+        </ng-template>
+        <div class="container">
+          <app-product *ngFor="let product of productsService.products" [product]="product"
+            [selectedProduct]="selectedProduct" [drawer]="drawer" (addBtnClick)="openDialog($event)"
+            (editBtnClick)="openAdminDrawer($event)"></app-product>
+          <div *ngIf="!productsService.products?.length" class="noProducts">No products found</div>
+          <button *ngIf="authService.currentUser.role === 'customer' && !drawer.opened" mat-fab color="primary"
+            class="showCartBtn" (click)="drawer.open()" matTooltip="Show Cart">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+          <button *ngIf="authService.currentUser.role === 'admin'" mat-fab color="accent" class="openAddBtn"
+            (click)="openAdminDrawer({drawer: drawer})" matTooltip="Add new product">
+            <mat-icon>queue</mat-icon>
+          </button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-drawer-content>
+</mat-drawer-container>

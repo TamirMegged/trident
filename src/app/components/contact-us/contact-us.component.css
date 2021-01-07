@@ -1,0 +1,36 @@
+.container {
+    /* background-color: #ffffff; */
+    background-color: rgb(4, 35, 66, 0.6);
+    width: 70%;
+    color: white;
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 5vh;
+}
+
+img {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 2vh;
+}
+
+header {
+    /* color: rgb(2, 197, 161); */
+    font-size: 8vh;
+    margin-bottom: 8vh;
+    margin-top: 2vh;
+}
+
+.contact {
+    margin: 4vh;
+    font-size: 3vh;
+}
+
+span {
+    margin: 1vw;
+}
+
+mat-icon {
+    color: rgb(2, 197, 161);
+    margin-bottom: 1vw;
+}

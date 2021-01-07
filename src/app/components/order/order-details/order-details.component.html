@@ -1,0 +1,54 @@
+<form [formGroup]="orderForm">
+    <header>Shipping Details</header>
+    <div class="formField">
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <mat-select formControlName="city" [(ngModel)]="city" required>
+                <mat-option *ngFor="let city of cities" [value]="city">
+                    {{city}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="orderForm.controls.city.errors?.required">
+                Please choose one of the cities above</mat-error>
+        </mat-form-field>
+        <button type="button" mat-icon-button class="autoFill" (dblclick)="autoFill($event, 'city')"
+            matTooltip="Double click to fill city automatically">
+            <mat-icon>location_city</mat-icon>
+        </button>
+    </div>
+    <div class="formField">
+        <mat-form-field appearance="fill">
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" required [(ngModel)]="street">
+            <mat-error *ngIf="orderForm.controls.street.invalid">
+                Please fill street field</mat-error>
+        </mat-form-field>
+        <button type="button" mat-icon-button class="autoFill" (dblclick)="autoFill($event, 'street')"
+            matTooltip="Double click to fill street automatically">
+            <mat-icon>house</mat-icon>
+        </button>
+    </div>
+    <div class="formField">
+        <mat-form-field appearance="fill">
+            <mat-label>Shipping Date</mat-label>
+            <input matInput [matDatepickerFilter]="myFilter" [min]="minDate" [matDatepicker]="picker"
+                formControlName="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker></mat-datepicker>
+            <mat-error *ngIf="orderForm.controls.date.invalid">Please choose a shipping date</mat-error>
+        </mat-form-field>
+    </div>
+    <mat-divider style="width: 60%; margin: 0 auto;"></mat-divider>
+    <header>Payment Details</header>
+    <div class="formField">
+        <mat-form-field appearance="fill">
+            <mat-label>Credit Card</mat-label>
+            <input matInput formControlName="creditCard" placeholder="YYYY-YYYY-YYYY-YYYY" required>
+            <mat-error *ngIf="orderForm.controls.creditCard.invalid">
+                Credit card numebr is invalid, must be 16 digits long</mat-error>
+        </mat-form-field>
+    </div>
+    <mat-divider style="width: 60%; margin: 0 auto;"></mat-divider>
+    <button mat-raised-button [disabled]="orderForm.invalid" color="accent" (click)="makeAnOrder()"
+        class="orderBtn">ORDER</button>
+</form>

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="slidesContainer">
+        <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+            <mdb-carousel-item *ngFor="let slide of slides">
+                <div class="view w-100">
+                    <img class="d-block w-100" [src]="slide.image" alt="First slide">
+                    <div class="mask waves-light" mdbWavesEffect></div>
+                </div>
+                <div class="carousel-caption">
+                    <h1 class="h1-responsive">{{slide.text}}</h1>
+                </div>
+            </mdb-carousel-item>
+        </mdb-carousel>
+    </div>
+    <header>What is Trident?</header>
+    <div class="description">
+        If you love the sea more than anything, this is the right place for you. Here we have the best
+        equipment
+        for all those marine sports areas: Scuba Diving, Freediving, Spearfishing, Surfing, Kitesurfing and
+        Fishing.<br>
+        So what are you waiting for? Register easily and start shopping.
+    </div>
+</div>

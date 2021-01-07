@@ -1,0 +1,40 @@
+<div *ngIf="product">
+    <Header>
+        <span>{{product.name}}</span>
+        <button mat-icon-button (click)="drawer.close()" matTooltip="Cancel Edit" class="cancelEditBtn">
+            <mat-icon>close</mat-icon>
+        </button>
+    </Header>
+    <mat-divider></mat-divider>
+    <form [formGroup]="productForm">
+        <div>ID: {{this.productsService.tempProduct._id}}</div>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name" [(ngModel)]="this.productsService.tempProduct.name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Company</mat-label>
+            <input matInput type="text" formControlName="company"
+                [(ngModel)]="this.productsService.tempProduct.company">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" formControlName="price" [(ngModel)]="this.productsService.tempProduct.price">
+        </mat-form-field>
+        <div>
+            <input type="file" style="display: none" (change)="onFileChanged($event)" #fileInput required>
+            <button mat-button (click)="fileInput.click()">Upload Different Image</button>
+            <div>{{selectedImg?.name}}</div>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category" [(ngModel)]="this.productsService.tempProduct.category">
+                <mat-option *ngFor="let category of categories" [value]="category.client_name">
+                    {{category.client_name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-button color="accent" class="saveBtn" (click)="saveChanges()"
+            [disabled]="(productForm.pristine && !selectedImg) || productForm.invalid">SAVE CHANGES</button>
+    </form>
+</div>

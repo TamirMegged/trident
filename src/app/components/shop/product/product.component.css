@@ -1,0 +1,15 @@
+.card {
+    width: 18vw;
+    height: 90%;
+    margin: 1vw;
+}
+
+img {
+    height: 38vh;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1vh;
+}

@@ -1,0 +1,21 @@
+<mat-card class="card">
+  <img mat-card-image [src]="product.image" [alt]="[product.name + ' Image']">
+  <mat-divider></mat-divider>
+  <div class="content">
+    <mat-card-header style="width: 70%">
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{product.company}}</mat-card-subtitle>
+      <mat-card-title>{{product.price}}$</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions style="width: 30%;">
+      <button *ngIf="authService.currentUser.role === 'customer'" mat-fab color="accent"
+        matTooltip="Add to shopping cart" (click)="addBtnClick.emit(product)">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button *ngIf="authService.currentUser.role === 'admin'" mat-fab color="accent" matTooltip="Edit product"
+        (click)="editBtnClick.emit({drawer: drawer, product: product})">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>

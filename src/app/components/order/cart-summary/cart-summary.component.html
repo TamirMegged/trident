@@ -1,0 +1,22 @@
+<div class="sumContainer">
+    <Header style="background-color: #019a7e;">My Cart</Header>
+    <mat-form-field appearance="fill" style="margin: 2vh;">
+        <mat-label>Search In Cart</mat-label>
+        <input matInput type="text" [(ngModel)]="searchText">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <mat-list role="list" class="itemsList">
+        <mat-list-item role="listitem" *ngFor="let item of cart?.products" class="item">
+            <span class="itemImg"><img [src]="item.product.image"></span>
+            <span class="itemName" innerHTML="{{ item.product.name | highlight : searchText}}"></span>
+            <span class="itemAmount">X{{item.amount}}</span>
+            <span class="itemPrice">price: {{item.amount * item.product.price}}$</span>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-list>
+    <div class="totalPrice">Total Price: {{cart?.total_price}}$</div>
+    <div class="actions">
+        <span>Do you want to keep looking for products?<button mat-button color="accent" class="returnToShopBtn"
+                routerLink="/shop">Return To Shop</button></span>
+    </div>
+</div>

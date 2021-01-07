@@ -1,0 +1,67 @@
+header {
+    font-size: 4vh;
+    padding: 2vh;
+    color: white;
+}
+
+.hideCartBtn {
+    position: absolute;
+    top: 1vh;
+    right: 0;
+}
+
+.items {
+    height: 80%;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.item {
+    height: 10vh !important;
+}
+
+.itemImg {
+    width: 20%;
+    height: 95%;
+    margin-right: .5vw;
+}
+
+.itemName {
+    width: 25%;
+    /* font-weight: bold; */
+}
+
+.itemAmount {
+    width: 10%;
+}
+
+.itemAmount:hover {
+    cursor: pointer;
+}
+
+.itemPrice {
+    width: 25%;
+}
+
+.totalPrice {
+    position: absolute;
+    left: 1vw;
+    bottom: 5vh;
+    font-size: 3vh;
+}
+
+.actions {
+    position: absolute;
+    right: 1vw;
+    bottom: 4vh;
+}
+
+.emptyCartBtn {
+    margin-right: 1vw;
+    font-size: 3vh;
+    /* margin-bottom: 2vh; */
+}
+
+.orderBtn {
+    font-size: 3vh;
+}

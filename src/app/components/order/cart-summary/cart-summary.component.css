@@ -1,0 +1,59 @@
+.sumContainer {
+    height: 100%;
+    background-color: white;
+}
+
+header {
+    font-size: 4vh;
+    padding: 2vh;
+    color: white;
+}
+
+.hideCartBtn {
+    position: absolute;
+    top: 1vh;
+    right: 0;
+}
+
+.itemsList {
+    max-height: 50vh;
+    overflow: auto;
+}
+
+.item {
+    height: 10vh !important;
+}
+
+.itemImg {
+    width: 20%;
+    height: 95%;
+    margin-right: .5vw;
+}
+
+.itemImg > img {
+    width: 70%;
+    height: 100%;
+}
+
+.itemName {
+    width: 35%;
+    /* background-color: #FFFF00; */
+}
+
+.itemAmount {
+    width: 15%;
+}
+
+.itemPrice {
+    width: 30%;
+}
+
+.totalPrice {
+    font-size: 3vh;
+    margin: 5vh;
+}
+
+.actions {
+    margin: 2vh;
+    margin-left: 5vh;
+}

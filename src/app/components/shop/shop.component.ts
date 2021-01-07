@@ -25,27 +25,27 @@ export class ShopComponent implements OnInit {
   ) {
     this.matIconRegistry.addSvgIcon(
       "freediving",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/icons/black/freediving.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/icons/black/freediving.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "scubaDiving",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/icons/black/scubaDiving.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/icons/black/scubaDiving.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "surfing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/icons/black/surfing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/icons/black/surfing.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "kitesurfing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/icons/black/kitesurfing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/icons/black/kitesurfing.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "fishing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/icons/black/fishing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/icons/black/fishing.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "spearfishing",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/icons/black/spearfishing.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/icons/black/spearfishing.svg")
     );
   }
 

@@ -25,8 +25,8 @@
             ],
             "styles": [
               "src/custom-theme.scss",
-              "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
-              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
+              "node_modules/angular-bootstrap-md/localhost:1000/public/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/localhost:1000/public/scss/mdb.scss",
               "node_modules/animate.css/animate.css",
               "src/styles.css"
             ],

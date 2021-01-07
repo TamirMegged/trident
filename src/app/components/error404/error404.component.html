@@ -1,6 +1,6 @@
 <div class="container">
     <header>Error 404</header>
-    <img src="assets/images/lifePreserver.png">
+    <img src="localhost:1000/public/images/lifePreserver.png">
     <p>Could not find the page you were looking for.</p>
     <button mat-raised-button routerLink="/home" color="accent">Back to Homepage</button>
 </div>
@@ -20,7 +20,7 @@
  
 <mat-file-upload-queue #fileUploadQueue
     [fileAlias]="'file'"
-    [httpUrl]="'http://localhost:4200/assets/images'">
+    [httpUrl]="'http://localhost:4200/localhost:1000/public/images'">
  
     <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
 </mat-file-upload-queue> -->

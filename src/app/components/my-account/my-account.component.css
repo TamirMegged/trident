@@ -5,7 +5,7 @@
 }
 
 .avatar {
-    background-image: url('assets/logo/darkLogo2.jpeg');
+    background-image: url('localhost:1000/public/logo/darkLogo2.jpeg');
     background-size: cover;
     width: 5vw;
     height: 5vw;

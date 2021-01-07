@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   ) {
     this.matIconRegistry.addSvgIcon(
       "emptyCart",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/icons/emptyCart.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../localhost:1000/public/icons/emptyCart.svg")
     );
   }
 

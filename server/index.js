@@ -16,6 +16,7 @@ app.use("/users", require('./routes/users'));
 app.use("/products", require('./routes/products'));
 app.use("/cart", require('./routes/cart'));
 app.use("/orders", require('./routes/orders'));
+app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/../dist/client'));
 
 app.get('/*', function (req, res) {

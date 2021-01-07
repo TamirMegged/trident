@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import decode from 'jwt-decode';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(
+    public http: HttpClient,
     public fb: FormBuilder,
     private router: Router,
     public authService: AuthService,
@@ -65,6 +67,10 @@ export class LoginComponent implements OnInit {
 
   changeWantedTab(i: number) {
     this.categoriesService.selected = i;
+  }
+
+  createDB() {
+    this.http.post('https://tridentmarinesports.herokuapp.com/createdb', {})
   }
 
 }

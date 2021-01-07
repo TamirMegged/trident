@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
-import { MatFileUploadModule } from 'angular-material-fileupload';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { Error404Component } from './components/error404/error404.component';
@@ -108,7 +107,6 @@ import { HighlightPipe } from './pipes/highlight.pipe';
     ClipboardModule,
     CarouselModule,
     WavesModule,
-    MatFileUploadModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],

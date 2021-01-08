@@ -18,15 +18,15 @@ router.post('/', async (req, res) => {
     }
 })
 
-// router.delete('/', async (req, res) => {
-//     try {
-//         await User.deleteMany()
-//         await Product.deleteMany()
-//         await Order.deleteMany()
-//         res.status(201).json({ error: false, msg: "Database data cleared successfully" })
-//     } catch (err) {
-//         res.sendStatus(500)
-//     }
-// })
+router.delete('/', async (req, res) => {
+    try {
+        await User.deleteMany()
+        await Product.deleteMany()
+        await Order.deleteMany()
+        res.status(201).json({ error: false, msg: "Database data cleared successfully" })
+    } catch (err) {
+        res.sendStatus(500)
+    }
+})
 
 module.exports = router

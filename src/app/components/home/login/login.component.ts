@@ -73,8 +73,8 @@ export class LoginComponent implements OnInit {
     this.http.post('https://tridentmarinesports.herokuapp.com/createdb', {})
   }
 
-  // deleteDB() {
-  //   this.http.delete('https://tridentmarinesports.herokuapp.com/createdb', {})
-  // }
+  deleteDB() {
+    this.http.delete('https://tridentmarinesports.herokuapp.com/createdb', {})
+  }
 
 }

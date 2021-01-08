@@ -1,12 +1,10 @@
 const router = require("express").Router()
 const Order = require('../db/models/orders')
 const User = require('../db/models/users')
-const Product = require('../db/models/products')
 const mongoose = require('mongoose')
 const emptyCart = require('../services/cart.service')
 const createReceipt = require('../services/order.service')
 const { verifyCustomer } = require("../verify")
-var fs = require('fs');
 
 // Count all orders - GET /count
 router.get('/count', async (req, res) => {

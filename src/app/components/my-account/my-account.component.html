@@ -45,10 +45,7 @@
     <mat-card-actions class="actions">
         <button mat-button routerLink="/shop" color="accent">
             <span *ngIf="user.role === 'admin'">CHECK SHOP</span>
-            <div *ngIf="user.role === 'customer'">
-                <span *ngIf="user.cart.products.length">RESUME SHOPPING</span>
-                <span *ngIf="!user.cart.products.length">START SHOPPING</span>
-            </div>
+            <span *ngIf="user.role === 'customer'">GO SHOPPING</span>
         </button>
         <button mat-button color="warn" (click)="authService.logout()">LOGOUT</button>
     </mat-card-actions>

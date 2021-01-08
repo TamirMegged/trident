@@ -69,9 +69,9 @@ export class LoginComponent implements OnInit {
     this.categoriesService.selected = i;
   }
 
-  // createDB() {
-  //   this.http.post('https://tridentmarinesports.herokuapp.com/createdb', {})
-  // }
+  createDB() {
+    this.http.post('https://tridentmarinesports.herokuapp.com/createdb', {})
+  }
 
   // deleteDB() {
   //   this.http.delete('https://tridentmarinesports.herokuapp.com/createdb', {})

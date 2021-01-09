@@ -49,9 +49,9 @@ export class LoginComponent implements OnInit {
         this.isError = false
         this.result = res
         localStorage.access_token = this.result.access_token
-        let user = decode(this.result.access_token)
-        // const { _id, first_name, last_name, email, city, street, cart, role } = user
-        this.authService.currentUser = user
+        let user: any = decode(this.result.access_token)
+        const { _id, first_name, last_name, email, city, street, cart, role } = user
+        this.authService.currentUser = { _id, first_name, last_name, email, city, street, cart, role }
         this.loggedIn.emit()
         if (this.authService.currentUser.role === 'admin') {
           this.router.navigateByUrl('/shop')

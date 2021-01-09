@@ -1,6 +1,6 @@
-<mat-grid-list cols="5" rowHeight="91vh" *ngIf="cart?.products.length">
+<mat-grid-list cols="5" *ngIf="cart?.products.length" rowHeight="90vh">
     <mat-grid-tile colspan="2">
-        <app-cart-summary style="height: 100%;" [cart]="cart"></app-cart-summary>
+        <app-cart-summary style="height: 100%" [cart]="cart"></app-cart-summary>
     </mat-grid-tile>
     <mat-grid-tile colspan="3">
         <app-order-details style="height: 100%;"></app-order-details>

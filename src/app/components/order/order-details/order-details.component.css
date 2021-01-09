@@ -4,13 +4,14 @@ form {
     justify-content: center;
     height: 100%;
     width: 60vw;
-    /* background-color: white; */
+    flex-wrap: wrap;
+    overflow: auto;
 }
 
 .formField {
     display: block;
     width: 20vw;
-    margin: 3vh auto 3vh auto;
+    margin: 2.5vh auto;
 }
 
 span {

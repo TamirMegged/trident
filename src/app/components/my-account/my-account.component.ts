@@ -31,8 +31,8 @@ export class MyAccountComponent implements OnInit {
     this.user = this.authService.currentUser
     if (this.user?.role === 'customer') {
       this.ordersService.getByUser(this.user._id).subscribe(
-        res => {
-          this.orders = res
+        (res: any) => {
+          this.orders = res.reverse()
         },
         err => {
           this.authService.checkToken(err)
